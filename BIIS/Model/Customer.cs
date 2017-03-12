@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace BIIS.Model
 {
-    public class Supplier
+    public class Customer
     {
         public int Id { get; set; }
         public string Name { get; set; }
