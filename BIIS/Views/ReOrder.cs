@@ -44,6 +44,10 @@ namespace BIIS.Views
 
             ProductDal.ReOrderTransaction(productId, newQuantity);
 
+            var product = ProductDal.GetProduct(productId);
+            product.Quantity = quantity;
+            ProductDal.UpdateRecentTransaction("Re-Order", product);
+
             MessageBox.Show("Succesfully Ordered!");
             Hide();
             BaseDAL.showDashboard();

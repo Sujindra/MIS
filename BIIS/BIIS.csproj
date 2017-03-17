@@ -85,9 +85,7 @@
     </Compile>
     <Compile Include="BusinessLogics\BaseDAL.cs" />
     <Compile Include="BusinessLogics\ProductDAL.cs" />
-    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\Supplier.cs" />
     <Compile Include="Views\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
