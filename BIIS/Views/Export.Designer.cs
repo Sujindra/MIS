@@ -40,6 +40,8 @@
             this.exportButton = new MetroFramework.Controls.MetroButton();
             this.cancelButton = new MetroFramework.Controls.MetroButton();
             this.productTableAdapter = new BIIS.BIISDataSetTableAdapters.ProductTableAdapter();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.txtBoxProfit = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bIISDataSet)).BeginInit();
             this.SuspendLayout();
@@ -76,14 +78,14 @@
             // 
             // customerTxt
             // 
-            this.customerTxt.Location = new System.Drawing.Point(128, 79);
+            this.customerTxt.Location = new System.Drawing.Point(137, 79);
             this.customerTxt.Name = "customerTxt";
             this.customerTxt.Size = new System.Drawing.Size(221, 23);
             this.customerTxt.TabIndex = 0;
             // 
             // quantityTxt
             // 
-            this.quantityTxt.Location = new System.Drawing.Point(128, 166);
+            this.quantityTxt.Location = new System.Drawing.Point(137, 166);
             this.quantityTxt.Name = "quantityTxt";
             this.quantityTxt.Size = new System.Drawing.Size(221, 23);
             this.quantityTxt.TabIndex = 2;
@@ -95,7 +97,7 @@
             this.productComboBox.DisplayMember = "Name";
             this.productComboBox.FormattingEnabled = true;
             this.productComboBox.ItemHeight = 23;
-            this.productComboBox.Location = new System.Drawing.Point(128, 126);
+            this.productComboBox.Location = new System.Drawing.Point(137, 126);
             this.productComboBox.Name = "productComboBox";
             this.productComboBox.Size = new System.Drawing.Size(221, 29);
             this.productComboBox.TabIndex = 1;
@@ -113,7 +115,7 @@
             // 
             // exportButton
             // 
-            this.exportButton.Location = new System.Drawing.Point(128, 219);
+            this.exportButton.Location = new System.Drawing.Point(137, 250);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(75, 32);
             this.exportButton.TabIndex = 3;
@@ -122,7 +124,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(274, 219);
+            this.cancelButton.Location = new System.Drawing.Point(283, 250);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 32);
             this.cancelButton.TabIndex = 4;
@@ -133,18 +135,38 @@
             // 
             this.productTableAdapter.ClearBeforeFill = true;
             // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel4.Location = new System.Drawing.Point(23, 206);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(106, 19);
+            this.metroLabel4.TabIndex = 0;
+            this.metroLabel4.Text = "Profit (Per Unit):";
+            // 
+            // txtBoxProfit
+            // 
+            this.txtBoxProfit.Location = new System.Drawing.Point(137, 202);
+            this.txtBoxProfit.Name = "txtBoxProfit";
+            this.txtBoxProfit.Size = new System.Drawing.Size(221, 23);
+            this.txtBoxProfit.TabIndex = 2;
+            this.txtBoxProfit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantityTxt_KeyPress);
+            // 
             // Export
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(370, 265);
+            this.ClientSize = new System.Drawing.Size(390, 305);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.productComboBox);
+            this.Controls.Add(this.txtBoxProfit);
             this.Controls.Add(this.quantityTxt);
             this.Controls.Add(this.customerTxt);
             this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.MaximizeBox = false;
@@ -172,5 +194,7 @@
         private BIISDataSet bIISDataSet;
         private System.Windows.Forms.BindingSource productBindingSource;
         private BIISDataSetTableAdapters.ProductTableAdapter productTableAdapter;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroTextBox txtBoxProfit;
     }
 }

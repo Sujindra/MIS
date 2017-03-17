@@ -78,6 +78,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BIISDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BIISDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BIISDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BusinessLogics\BaseDAL.cs" />
     <Compile Include="BusinessLogics\ProductDAL.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -127,6 +132,12 @@
     <Compile Include="Views\Export.Designer.cs">
       <DependentUpon>Export.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReOrder.Designer.cs">
+      <DependentUpon>ReOrder.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +169,9 @@
     <EmbeddedResource Include="Views\Export.resx">
       <DependentUpon>Export.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReOrder.resx">
+      <DependentUpon>ReOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="BIISDataSet.xsc">
       <DependentUpon>BIISDataSet.xsd</DependentUpon>
     </None>
@@ -168,6 +182,17 @@
     </None>
     <None Include="BIISDataSet.xss">
       <DependentUpon>BIISDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BIISDataSet1.xsc">
+      <DependentUpon>BIISDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BIISDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BIISDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BIISDataSet1.xss">
+      <DependentUpon>BIISDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -169,5 +169,42 @@ namespace BIIS.BusinessLogics
             return product;
         }
 
+        //public static void GetQuantity(int Id)
+        //{
+        //    using (var con = new SqlConnection(connectionString))
+        //    {
+        //        var query = "SELECT * FROM Product WHERE Id=@id";
+
+        //        using (var cmd = new SqlCommand(query, con))
+        //        {
+        //            cmd.Parameters.AddWithValue("id", Id);
+        //            con.Open();
+
+        //        }
+        //            cmd.Dispose();
+        //        }
+        //        con.Close();
+        //    }
+
+        //}
+
+        public static void ReOrderTransaction(int Id, int Quantity)
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                var query = @"UPDATE Product
+                              SET Quantity=@quantity
+                              WHERE Id=@id";
+
+                using (var cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("quantity", Quantity);
+                    cmd.Parameters.AddWithValue("id", Id);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

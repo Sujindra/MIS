@@ -42,17 +42,36 @@ namespace BIIS.Views
                 if (quantity > dbQuantity)
                 {
                     MessageBox.Show($"Sorry. But there exists only {dbQuantity} Quantity of the selected Product.");
+                    return;
                 }
+
+                if (dbQuantity < 5)
+                {
+                    var dialogResult = MessageBox.Show("Only limited stock remaining. Plear Re-Order this product", "Limited Stock!", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        var rol =new ReOrder();
+                        rol.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    return;
+                }
+
                 else
                 {
                     var newQuantity = dbQuantity - quantity;
+
 
                     //Update Product
                     ProductDal.UpdateExportRecord(Id, newQuantity);
 
                     var product = ProductDal.GetProduct(Id);
                     product.Quantity = quantity; //Override
-                    
+
                     //Update Recent Transaction
                     ProductDal.UpdateRecentTransaction("Export", product);
 
