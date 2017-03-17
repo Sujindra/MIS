@@ -64,18 +64,15 @@ namespace BIIS.Views
                 else
                 {
                     var newQuantity = dbQuantity - quantity;
-
-
-                    //Update Product
+                    
                     ProductDal.UpdateExportRecord(Id, newQuantity);
 
                     var product = ProductDal.GetProduct(Id);
                     product.Quantity = quantity; //Override
 
-                    //Update Recent Transaction
                     ProductDal.UpdateRecentTransaction("Export", product);
 
-                    MessageBox.Show("Succesfully recorded the export transaction");
+                    MessageBox.Show("Succesfully recorded the export transaction with 15% Profit.");
                     this.Close();
 
                     BaseDAL.showDashboard();

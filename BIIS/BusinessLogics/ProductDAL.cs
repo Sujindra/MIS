@@ -1,4 +1,5 @@
 ﻿using BIIS.Model;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -96,10 +97,18 @@ namespace BIIS.BusinessLogics
 
         public static void UpdateRecentTransaction(string type, Product product)
         {
+            var total = product.CostPerUnit * product.Quantity;
+
+            if(type.Equals("Export"))
+            {
+                var profit = total * 0.15;
+                total = total + Int32.Parse(profit.ToString());
+            }
+
             using (var con = new SqlConnection(connectionString))
             {
-                var query = @"INSERT INTO RecentTransaction (Name,Quantity,CostPerUnit,Type)
-                            VALUES (@name,@quantity,@cpu,@type)";
+                var query = @"INSERT INTO RecentTransaction (Name,Quantity,CostPerUnit,Type,Total)
+                            VALUES (@name,@quantity,@cpu,@type,@total)";
 
                 using (var cmd = new SqlCommand(query, con))
                 {
@@ -107,6 +116,7 @@ namespace BIIS.BusinessLogics
                     cmd.Parameters.AddWithValue("quantity", product.Quantity);
                     cmd.Parameters.AddWithValue("cpu", product.CostPerUnit);
                     cmd.Parameters.AddWithValue("type", type);
+                    cmd.Parameters.AddWithValue("total", total);
 
                     con.Open();
                     cmd.ExecuteReader();
@@ -168,25 +178,6 @@ namespace BIIS.BusinessLogics
             }
             return product;
         }
-
-        //public static void GetQuantity(int Id)
-        //{
-        //    using (var con = new SqlConnection(connectionString))
-        //    {
-        //        var query = "SELECT * FROM Product WHERE Id=@id";
-
-        //        using (var cmd = new SqlCommand(query, con))
-        //        {
-        //            cmd.Parameters.AddWithValue("id", Id);
-        //            con.Open();
-
-        //        }
-        //            cmd.Dispose();
-        //        }
-        //        con.Close();
-        //    }
-
-        //}
 
         public static void ReOrderTransaction(int Id, int Quantity)
         {

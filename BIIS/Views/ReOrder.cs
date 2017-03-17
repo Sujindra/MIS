@@ -12,19 +12,19 @@ namespace BIIS.Views
             ControlBox = false;
         }
 
-        private void btnCancel_Click(object sender, System.EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             Hide();
-            BusinessLogics.BaseDAL.showDashboard();
+            BaseDAL.showDashboard();
         }
 
-        private void ReOrder_Load(object sender, System.EventArgs e)
+        private void ReOrder_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'bIISDataSet1.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.bIISDataSet1.Product);
         }
 
-        private void metroTextBox1_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        private void metroTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
